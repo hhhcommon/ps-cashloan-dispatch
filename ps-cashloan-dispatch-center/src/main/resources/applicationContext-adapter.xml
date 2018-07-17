@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+	http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- 第三方配置接口 -->
+    <bean id="taskFactory" class="com.adpanshi.cashloan.dispatch.run.factory.TaskFactory">
+        <property name="taskMap">
+            <map>
+                <!--<entry key="btComplexInfoQueryExtractFeatureTask" value-ref="btComplexInfoQueryExtractFeatureTask"/>-->
+                <entry key="user" value-ref="userService"/>
+
+
+            </map>
+        </property>
+    </bean>
+</beans>
