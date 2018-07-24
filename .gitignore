@@ -29,3 +29,5 @@ logs/
 *.jar
 *.war
 *.MF
+*.lst
+target/
