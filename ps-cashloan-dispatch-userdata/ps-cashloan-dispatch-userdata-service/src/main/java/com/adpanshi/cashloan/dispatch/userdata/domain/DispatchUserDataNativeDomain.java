@@ -25,6 +25,7 @@ public class DispatchUserDataNativeDomain implements DispatchUserDataDomain {
 //    /**
 //     * 获取用户数据
 //     */
+//    @Override
 //    public UserDataBo getUserDataBo(Integer userId) {
 //        User user = dispatchUserDataService.getUserByUserId(userId);
 //        System.out.println(JSONObject.toJSONString(user));

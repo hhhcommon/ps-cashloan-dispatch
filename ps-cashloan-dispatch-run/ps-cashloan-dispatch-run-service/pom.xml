@@ -10,14 +10,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>ps-cashloan-dispatch-run-service</artifactId>
-    <version>${project.parent.version}</version>
-    <packaging>pom</packaging>
 
     <dependencies>
         <dependency>
             <groupId>com.adpanshi</groupId>
             <artifactId>ps-cashloan-dispatch-run-interface</artifactId>
-            <version>${project.version}</version>
+            <version>${project.parent.version}</version>
         </dependency>
         <dependency>
             <groupId>com.adpanshi</groupId>
@@ -35,5 +33,12 @@
             <artifactId>ps-cashloan-data-user-interface</artifactId>
             <version>${project.parent.version}</version>
         </dependency>
+
+        <dependency>
+            <groupId>com.adpanshi</groupId>
+            <artifactId>ps-cashloan-jms-task-interface</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+
     </dependencies>
 </project>

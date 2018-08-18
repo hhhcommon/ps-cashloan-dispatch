@@ -1,6 +1,7 @@
 package com.adpanshi.cashloan.dispatch.run.bo;
 
 import com.adpanshi.cashloan.dispatch.run.enums.StatusCode;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.Date;
@@ -15,7 +16,7 @@ public class DispatchRunResponseBo<T> implements java.io.Serializable {
 
     private String ret_msg;
 
-    private long time = new Date().getTime();
+    private long time = System.currentTimeMillis();
 
     private T data;
 
@@ -81,6 +82,17 @@ public class DispatchRunResponseBo<T> implements java.io.Serializable {
 
     public static <R> DispatchRunResponseBo<R> error(StatusCode code, String remark) {
         return new DispatchRunResponseBo<R>(code, remark, null);
+    }
+
+    @JsonIgnore
+    private Integer nodeInstId;
+
+    public Integer getNodeInstId() {
+        return nodeInstId;
+    }
+
+    public void setNodeInstId(Integer nodeInstId) {
+        this.nodeInstId = nodeInstId;
     }
 
 }

@@ -24,20 +24,20 @@ public class TaskInstanceService {
     /**
      * 添加
      */
-    public TaskInstanceWithBLOBs create(String adapterCode, Integer nodeInstId, Integer nodeId, Integer taskId, Integer userDataId, String userAccount, String userIdCard, String userName, String deviceFingerprint, String paramsJson, Boolean isSync, Boolean isPause) {
+    public TaskInstanceWithBLOBs create(String adapterCode, Integer nodeInstId, Integer nodeId, Integer taskId, Integer userDataId, String mobile, String email,  String userIdCard, String userName, String deviceFingerprint, String paramsJson, Boolean isSync) {
         TaskInstanceWithBLOBs instance = new TaskInstanceWithBLOBs();
         instance.setAdapterCode(adapterCode);
         instance.setNodeInstId(nodeInstId);
         instance.setNodeId(nodeId);
         instance.setTaskId(taskId);
         instance.setUserDataId(userDataId);
-        instance.setUserAccount(userAccount);
+        instance.setUserMobile(mobile);
+        instance.setUserEmail(email);
         instance.setUserIdCard(userIdCard);
         instance.setUserName(userName);
         instance.setDeviceFingerprint(deviceFingerprint);
         instance.setParamsJson(paramsJson);
         instance.setIsSync(isSync);
-        instance.setIsPause(isPause);
         instance.setIsdelete(false);
         instance.setStatus(TaskStatus.INIT.getValue());
         instance.setCreateTime(new Date());
@@ -100,26 +100,6 @@ public class TaskInstanceService {
         passStatus.add(TaskStatus.SKIP.getValue());
         TaskInstanceExample example = new TaskInstanceExample();
         example.createCriteria().andIsdeleteEqualTo(false).andNodeInstIdEqualTo(nodeInstanceId).andTaskIdEqualTo(taskId).andStatusIn(passStatus);
-        return taskInstanceMapper.selectByExampleWithBLOBs(example);
-    }
-
-    /**
-     * 根据用户数据ID查找
-     */
-    public List<TaskInstanceWithBLOBs> findPausedInitStatusTaskInstanceBoByIdCard(String idCard) {
-        TaskInstanceExample example = new TaskInstanceExample();
-        example.createCriteria().andIsdeleteEqualTo(false).andIsPauseEqualTo(true).andStatusEqualTo(TaskStatus.INIT.getValue()).andUserIdCardEqualTo(idCard);
-        return taskInstanceMapper.selectByExampleWithBLOBs(example);
-    }
-
-    /**
-     *  查找任务
-     * @param taskId        任务ID
-     * @param userDataId    用户数据ID
-     */
-    public List<TaskInstanceWithBLOBs> findByTaskIdAndUserDataId(Integer taskId,Integer userDataId) {
-        TaskInstanceExample example = new TaskInstanceExample();
-        example.createCriteria().andIsdeleteEqualTo(false).andTaskIdEqualTo(taskId).andUserDataIdEqualTo(userDataId);
         return taskInstanceMapper.selectByExampleWithBLOBs(example);
     }
 

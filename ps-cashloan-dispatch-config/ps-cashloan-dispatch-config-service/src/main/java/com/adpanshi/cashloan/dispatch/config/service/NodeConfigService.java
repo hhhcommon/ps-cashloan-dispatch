@@ -11,7 +11,7 @@ import javax.annotation.Resource;
 import java.util.List;
 
 /**
- * Created by 王帅 on 2017/8/28.
+ * 节点配置
  */
 @Service
 public class NodeConfigService {

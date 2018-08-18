@@ -15,7 +15,6 @@ public class TaskConfigBo implements Serializable {
     private String desc;
     private Integer nodeId;
     private Boolean isSync;
-    private Boolean isPause;
     private Boolean isFinalTask;
 
     public Integer getId() {
@@ -72,14 +71,6 @@ public class TaskConfigBo implements Serializable {
 
     public void setIsSync(Boolean sync) {
         isSync = sync;
-    }
-
-    public Boolean getIsPause() {
-        return isPause;
-    }
-
-    public void setIsPause(Boolean pause) {
-        isPause = pause;
     }
 
     public Boolean getIsFinalTask() {

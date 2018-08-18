@@ -8,9 +8,9 @@ import com.adpanshi.cashloan.data.user.bo.UserDataBo;
  */
 public interface DispatchUserDataDomain {
 
-//    /**
-//     * 获取用户
-//     */
+    /**
+     * 获取用户
+     */
 //    UserDataBo getUserDataBo(Integer userId);
 //
 //    /**

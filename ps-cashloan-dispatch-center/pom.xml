@@ -11,10 +11,18 @@
 
     <artifactId>ps-cashloan-dispatch-center</artifactId>
     <packaging>war</packaging>
-    <name>${project.artifactId}</name>
-    <version>1.0.0.1-SNAPSHOT</version>
 
     <dependencies>
+        <dependency>
+            <groupId>com.adpanshi</groupId>
+            <artifactId>common</artifactId>
+            <version>1.0.0.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.adpanshi</groupId>
+            <artifactId>ps-cashloan-data-common</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
         <dependency>
             <groupId>com.adpanshi</groupId>
             <artifactId>ps-cashloan-dispatch-run-service</artifactId>
@@ -27,63 +35,21 @@
         </dependency>
         <dependency>
             <groupId>com.adpanshi</groupId>
-            <artifactId>common</artifactId>
-            <version>1.0.0.1</version>
-        </dependency>
-        <dependency>
-            <groupId>com.adpanshi</groupId>
             <artifactId>ps-cashloan-dispatch-userdata-service</artifactId>
             <version>${project.parent.version}</version>
         </dependency>
+        <dependency>
+            <groupId>com.adpanshi</groupId>
+            <artifactId>ps-cashloan-dispatch-business-service</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.wordnik</groupId>
+            <artifactId>swagger-annotations</artifactId>
+            <version>1.3.5</version>
+        </dependency>
+
     </dependencies>
 
-    <build>
-        <finalName>${project.artifactId}</finalName>
-        <plugins>
-            <plugin>
-                <groupId>org.mortbay.jetty</groupId>
-                <artifactId>maven-jetty-plugin</artifactId>
-                <version>6.1.5</version>
-                <configuration>
-                    <webAppSourceDirectory>src/main/webapp</webAppSourceDirectory>
-                    <scanIntervalSeconds>3</scanIntervalSeconds>
-                    <contextPath>/</contextPath>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-war-plugin</artifactId>
-                <version>3.0.0</version>
-                <configuration>
-                    <archive>
-                        <addMavenDescriptor>false</addMavenDescriptor>
-                    </archive>
-                    <webResources>
-                        <resource>
-                            <directory>src/main/resources</directory>
-                            <targetPath>WEB-INF/classes</targetPath>
-                            <filtering>true</filtering>
-                        </resource>
-                    </webResources>
-                </configuration>
-            </plugin>
-        </plugins>
-        <resources>
-            <resource>
-                <directory>src/main/java</directory>
-                <includes>
-                    <include>**/*.xml</include>
-                    <include>**/*.properties</include>
-                </includes>
-            </resource>
-            <resource>
-                <directory>src/main/resources</directory>
-                <includes>
-                    <include>**/*.pdf</include>
-                    <include>**/*.xml</include>
-                    <include>**/*.properties</include>
-                </includes>
-            </resource>
-        </resources>
-    </build>
 </project>

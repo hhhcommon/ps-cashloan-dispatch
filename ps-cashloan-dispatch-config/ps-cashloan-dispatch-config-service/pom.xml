@@ -18,10 +18,5 @@
             <artifactId>ps-cashloan-dispatch-config-interface</artifactId>
             <version>${project.parent.version}</version>
         </dependency>
-        <dependency>
-            <groupId>com.adpanshi</groupId>
-            <artifactId>common</artifactId>
-            <version>1.0.0.1</version>
-        </dependency>
     </dependencies>
 </project>

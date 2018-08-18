@@ -10,7 +10,6 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>ps-cashloan-dispatch-run</artifactId>
-    <version>${project.parent.version}</version>
     <packaging>pom</packaging>
     <modules>
         <module>ps-cashloan-dispatch-run-service</module>

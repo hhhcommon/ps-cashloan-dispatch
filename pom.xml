@@ -12,18 +12,53 @@
     <artifactId>ps-cashloan-dispatch</artifactId>
     <packaging>pom</packaging>
     <version>1.0.0.1-SNAPSHOT</version>
-    <name>${project.artifactId}</name>
 
     <modules>
         <module>ps-cashloan-dispatch-center</module>
         <module>ps-cashloan-dispatch-run</module>
         <module>ps-cashloan-dispatch-userdata</module>
         <module>ps-cashloan-dispatch-config</module>
+        <module>ps-cashloan-dispatch-business</module>
     </modules>
+    <profiles>
+        <profile>
+            <id>dev</id>
+            <properties>
+                <profiles.active>dev</profiles.active>
+            </properties>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+        </profile>
+        <profile>
+            <id>test</id>
+            <properties>
+                <profiles.active>test</profiles.active>
+            </properties>
 
+        </profile>
+        <profile>
+            <id>pre</id>
+            <properties>
+                <profiles.active>pre</profiles.active>
+            </properties>
+        </profile>
+        <profile>
+            <id>prod</id>
+            <properties>
+                <profiles.active>prod</profiles.active>
+            </properties>
+        </profile>
+    </profiles>
+    <dependencies>
+        <dependency>
+            <groupId>com.adpanshi</groupId>
+            <artifactId>common</artifactId>
+            <version>1.0.0.1-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
 
     <build>
-        <finalName>${project.artifactId}</finalName>
         <plugins>
             <plugin>
                 <groupId>org.mybatis.generator</groupId>

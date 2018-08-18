@@ -8,9 +8,14 @@
         <version>1.0.0.1-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <version>1.0.0.1-SNAPSHOT</version>
-    <packaging>pom</packaging>
     <artifactId>ps-cashloan-dispatch-run-test</artifactId>
 
 
+    <dependencies>
+        <dependency>
+            <groupId>com.adpanshi</groupId>
+            <artifactId>ps-cashloan-dispatch-run-service</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+    </dependencies>
 </project>

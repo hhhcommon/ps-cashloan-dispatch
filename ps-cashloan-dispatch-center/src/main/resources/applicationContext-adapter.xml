@@ -9,11 +9,49 @@
     <bean id="taskFactory" class="com.adpanshi.cashloan.dispatch.run.factory.TaskFactory">
         <property name="taskMap">
             <map>
-                <!--<entry key="btComplexInfoQueryExtractFeatureTask" value-ref="btComplexInfoQueryExtractFeatureTask"/>-->
-                <entry key="user" value-ref="userService"/>
-
-
+                <entry key="userBaseInfoTask" value-ref="userBaseInfoTask"/>
+                <entry key="userBaseInfoExtractVariableTask" value-ref="userBaseInfoExtractVariableTask"/>
+                <entry key="userBaseInfoExtractFeatureTask" value-ref="userBaseInfoExtractFeatureTask"/>
+                <entry key="userRegisterTask" value-ref="userRegisterTask"/>
+                <entry key="userRegisterExtractVariableTask" value-ref="userRegisterExtractVariableTask"/>
+                <entry key="userRegisterExtractFeatureTask" value-ref="userRegisterExtractFeatureTask"/>
+                <entry key="userLoginTask" value-ref="userLoginTask"/>
+                <entry key="userLoginExtractVariableTask" value-ref="userLoginExtractVariableTask"/>
+                <entry key="userLoginExtractFeatureTask" value-ref="userLoginExtractFeatureTask"/>
+                <entry key="emergencyContactTask" value-ref="emergencyContactTask"/>
+                <entry key="emergencyContactExtractVariableTask" value-ref="emergencyContactExtractVariableTask"/>
+                <entry key="emergencyContactExtractFeatureTask" value-ref="emergencyContactExtractFeatureTask"/>
+                <entry key="appCallRecordTask" value-ref="appCallRecordTask"/>
+                <entry key="appCallRecordExtractVariableTask" value-ref="appCallRecordExtractVariableTask"/>
+                <entry key="appCallRecordExtractFeatureTask" value-ref="appCallRecordExtractFeatureTask"/>
+                <entry key="panCardTask" value-ref="panCardTask"/>
+                <entry key="equifaxTask" value-ref="equifaxTask"/>
+                <entry key="equifaxExtractVariableTask" value-ref="equifaxExtractVariableTask"/>
+                <entry key="equifaxExtractFeatureTask" value-ref="equifaxExtractFeatureTask"/>
+                <entry key="userContactsTask" value-ref="userContactsTask"/>
+                <entry key="userContactsExtractVariableTask" value-ref="userContactsExtractVariableTask"/>
+                <entry key="userContactsExtractFeatureTask" value-ref="userContactsExtractFeatureTask"/>
+                <entry key="userSMSTask" value-ref="userSMSTask"/>
+                <entry key="userSMSExtractVariableTask" value-ref="userSMSExtractVariableTask"/>
+                <entry key="userSMSExtractFeatureTask" value-ref="userSMSExtractFeatureTask"/>
+                <entry key="userSIMTask" value-ref="userSIMTask"/>
+                <entry key="userSIMExtractVariableTask" value-ref="userSIMExtractVariableTask"/>
+                <entry key="userSIMExtractFeatureTask" value-ref="userSIMExtractFeatureTask"/>
+                <entry key="userSNSTask" value-ref="userSNSTask"/>
+                <entry key="userSNSExtractVariableTask" value-ref="userSNSExtractVariableTask"/>
+                <entry key="userSNSExtractFeatureTask" value-ref="userSNSExtractFeatureTask"/>
+                <entry key="tongdunCreditBodyguardTask" value-ref="tongdunCreditBodyguardTask"/>
+                <entry key="tongdunCreditBodyguardExtractVariableTask" value-ref="tongdunCreditBodyguardExtractVariableTask"/>
+                <entry key="tongdunCreditBodyguardExtractFeatureTask" value-ref="tongdunCreditBodyguardExtractFeatureTask"/>
+                <entry key="tongdunDeviceFingerprintingTask" value-ref="tongdunDeviceFingerprintingTask"/>
+                <entry key="tongdunDeviceFingerprintingExtractVariableTask" value-ref="tongdunDeviceFingerprintingExtractVariableTask"/>
+                <entry key="tongdunDeviceFingerprintingExtractFeatureTask" value-ref="tongdunDeviceFingerprintingExtractFeatureTask"/>
+                <entry key="appApplicationTask" value-ref="appApplicationTask"/>
+                <entry key="appApplicationExtractVariableTask" value-ref="appApplicationExtractVariableTask"/>
+                <entry key="appApplicationExtractFeatureTask" value-ref="appApplicationExtractFeatureTask"/>
+                <entry key="oloanLoanApplyTask" value-ref="oloanLoanApplyTask"/>
             </map>
         </property>
     </bean>
 </beans>
+

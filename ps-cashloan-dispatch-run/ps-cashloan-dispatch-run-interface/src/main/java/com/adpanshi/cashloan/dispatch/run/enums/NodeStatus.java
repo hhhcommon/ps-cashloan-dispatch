@@ -20,6 +20,7 @@ public enum NodeStatus implements ContentEnum {
         this.content = content;
         this.value = value;
     }
+    @Override
     public boolean equalsValue(Integer value)
     {
         return (value != null) && (value.equals(getValue()));
@@ -35,10 +36,12 @@ public enum NodeStatus implements ContentEnum {
         return null;
     }
 
+    @Override
     public String getContent() {
         return this.content;
     }
 
+    @Override
     public Integer getValue() {
         return this.value;
     }

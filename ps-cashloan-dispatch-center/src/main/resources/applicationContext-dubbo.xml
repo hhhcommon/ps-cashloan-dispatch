@@ -12,12 +12,13 @@
     <dubbo:application name="ps-cashloan-dispatch-center" logger="${dubbo.application.logger}"/>
     <!-- 通过 广播通知所有人-->
     <dubbo:registry id="cashloan" address="${cashloan.registry.address}" protocol="${cashloan.registry.protocol}"/>
-    <dubbo:protocol name="${protocol.name}" port="${protocol.port}" threads="500"/>
-    <dubbo:provider filter="-exception"/>
+    <dubbo:protocol name="${protocol.name}" port="${protocol.port}" threads="500" payload="${protocol.payload}"/>
+    <dubbo:provider filter="-exception" payload="${provider.payload}"/>
 
     <dubbo:service interface="com.adpanshi.cashloan.dispatch.run.domain.DispatchRunDomain" version="1.0.0" ref="dispatchRunDomain" validation="false" timeout="50000" retries="0" registry="cashloan"/>
     <dubbo:service interface="com.adpanshi.cashloan.dispatch.userdata.domain.DispatchUserDataDomain" version="1.0.0" ref="dispatchUserDataDomain" validation="false" timeout="50000" retries="0" registry="cashloan"/>
     <dubbo:service interface="com.adpanshi.cashloan.dispatch.config.domain.DispatchConfigDomain" version="1.0.0" ref="dispatchConfigDomain" validation="false" timeout="50000" retries="0" registry="cashloan"/>
 
     <dubbo:reference id="userDataDomain" interface="com.adpanshi.cashloan.data.user.domain.UserDataDomain" version="1.0.0" check="false" registry="cashloan"/>
+    <dubbo:reference id="jmsActiveTaskDomain" interface="com.adpanshi.cashloan.jms.task.domain.JmsActiveTaskDomain" version="1.0.0" check="false" registry="cashloan"/>
 </beans>

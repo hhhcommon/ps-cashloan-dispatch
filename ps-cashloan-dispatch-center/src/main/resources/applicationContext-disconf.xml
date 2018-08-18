@@ -5,7 +5,7 @@
     http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <bean id="disconfMgrBean" class="com.baidu.disconf.client.DisconfMgrBean" destroy-method="destroy">
-        <property name="scanPackage" value="com.btjf"/>
+        <property name="scanPackage" value="com.adpanshi"/>
     </bean>
 
     <bean id="disconfMgrBeanSecond" class="com.baidu.disconf.client.DisconfMgrBeanSecond" init-method="init"
@@ -17,7 +17,6 @@
             <list>
                 <value>classpath*:/jdbc.properties</value>
                 <value>classpath*:/db-pool.properties</value>
-                <!--<value>classpath*:/redis.properties</value>-->
                 <value>classpath*:/thread-pool.properties</value>
                 <value>classpath*:/dubbo-runtime.properties</value>
             </list>

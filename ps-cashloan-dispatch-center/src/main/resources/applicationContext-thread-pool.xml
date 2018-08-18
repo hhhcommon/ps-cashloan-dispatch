@@ -18,6 +18,8 @@
 		<property name ="maxPoolSize" value ="${thread.pool.max}" />
 		<!-- 线程池所使用的缓冲队列 -->
 		<property name ="queueCapacity" value ="${thread.pool.capacity}" />
+
+		<property name ="awaitTerminationSeconds" value ="${thread.pool.terminationSeconds}" />
 	</bean>
 	
 </beans>

@@ -13,7 +13,6 @@
     <property name="MAX_HISTORY" value="30"/>
     <!-- 定义日志文件 输出位置 -->
     <property name="LOG_DIR" value="${catalina.home}/logs"/>
-    <property name="KAFKA_SERVER_LOCATION" value="192.168.20.116:9092,192.168.20.116:9093"/>
 
     <!-- 控制台输出 -->
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
@@ -67,38 +66,6 @@
     </appender>
 
 
-    <appender name="KAFKA_APPENDER" class="com.github.danielwegener.logback.kafka.KafkaAppender">
-        <encoder class="com.github.danielwegener.logback.kafka.encoding.LayoutKafkaMessageEncoder">
-            <layout class="com.adpanshi.cashloan.common.log.PSPatternLayout">
-                <!--PID：进程ID，hostName：主机名，hostAddress：主机地址，cn：工程名-->
-                <pattern>%d{yyyy-MM-dd HH:mm:ss:SSS} [%pid] [%hostName] [%hostAddress] [%cn] [%thread] %-5level [%logger:%line] - %msg%n
-                </pattern>
-            </layout>
-        </encoder>
-        <!--队列名称-->
-        <topic>kafka</topic>
-
-        <keyingStrategy class="com.github.danielwegener.logback.kafka.keying.LoggerNameKeyingStrategy"/>
-        <deliveryStrategy class="com.github.danielwegener.logback.kafka.delivery.AsynchronousDeliveryStrategy"/>
-        <!--设置kafka集群地址-->
-        <producerConfig>bootstrap.servers=${KAFKA_SERVER_LOCATION}</producerConfig>
-        <!--设置producer的确认信号
-        （1）acks=0： 设置为0表示producer不需要等待任何确认收到的信息。副本将立即加到socket  buffer并认为已经发送。没有任何保障可以保证此种情况下server已经成功接收数据，同时重试配置不会发生作用（因为客户端不知道是否失败）回馈的offset会总是设置为-1；
-        （2）acks=1： 这意味着至少要等待leader已经成功将数据写入本地log，但是并没有等待所有follower是否成功写入。这种情况下，如果follower没有成功备份数据，而此时leader又挂掉，则消息会丢失。
-        （3）acks=all： 这意味着leader需要等待所有备份都成功写入日志，这种策略会保证只要有一个备份存活就不会丢失数据。这是最强的保证。
-        -->
-        <producerConfig>acks=0</producerConfig>
-        <!--等待1秒后，一次发送所有消息-->
-        <producerConfig>linger.ms=1000</producerConfig>
-        <!--当我们内存缓存用尽时，必须停止接收新消息记录或者抛出错误。默认情况下，这个设置为真，然而某些阻塞可能不值得期待，因此立即抛出错误更好。设置为false则会这样：producer会抛出一个异常错误：BufferExhaustedException， 如果记录已经发送同时缓存已满-->
-        <producerConfig>block.on.buffer.full=false</producerConfig>
-        <!--获取元数据的超时时间。元素据包含：topic，host，partitions。此项配置是指当等待元素据fetch成功完成所需要的时间，否则会抛出异常给客户端。-->
-        <producerConfig>metadata.fetch.timeout.ms=100</producerConfig>
-
-        <!--若kafka传输失败，将这个appender下打印日志。-->
-        <appender-ref ref="STDOUT"/>
-    </appender>
-
 
     <root level="INFO">
         <!-- 生产环境［不］配置此Appender -->
@@ -107,17 +74,6 @@
         <appender-ref ref="INFO_FILE_OUT"/>
         <!-- 生产环境需要配置此Appender -->
         <appender-ref ref="WARN_FILE_OUT"/>
-        <!-- 生产环境需要配置此Appender（开发环境可以不配） -->
-        <!--<appender-ref ref="KAFKA_APPENDER"/>-->
     </root>
-
-    <appender name="OPEN_API_FILE_OUT" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <encoder>
-            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{5} - %msg%n</pattern>
-        </encoder>
-        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>${LOG_DIR}/%d{yyyy-MM-dd}/ps-cashloan-dispatch-center.log</fileNamePattern>
-        </rollingPolicy>
-    </appender>
 
 </configuration>

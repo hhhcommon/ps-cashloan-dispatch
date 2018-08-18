@@ -18,7 +18,7 @@ import java.util.List;
  * 调度中心配置Domain
  * Created by zsw on 2018/6/29 0029.
  */
-@Service
+@Service("dispatchConfigDomain")
 public class DispatchConfigNaitveDomain implements DispatchConfigDomain {
 
     @Resource
